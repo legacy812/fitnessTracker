@@ -1,24 +1,21 @@
 const { model, Schema } = require('mongoose')
 
-
-module.exports = model('workout',
+module.exports = model(
+  'workout',
   new Schema({
     day: {
       type: Date,
-      default: Date.now
+      default: () => new Date()
     },
     exercises: [
       {
         type: {
-          type: String,
+          type: String
         },
         name: {
-          type: String,
+          type: String
         },
         duration: {
-          type: Number,
-        },
-        weight: {
           type: Number
         },
         reps: {
@@ -32,4 +29,5 @@ module.exports = model('workout',
         }
       }
     ]
-  }))
+  })
+);
